@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Events & News | Café Serenity</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;600;700&family=Young+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .animate-in { animation: animateIn 0.5s ease-in-out forwards; opacity: 0; }
+    @keyframes animateIn {
+      from { opacity: 0; transform: translateY(10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .scroll-reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out;}
+    .scroll-reveal.active { opacity: 1; transform: translateY(0);}
+    .font-serif { font-family: 'Young Serif', serif !important; }
+    .font-sans { font-family: 'Mona Sans', Arial, sans-serif !important; }
+  </style>
+</head>
+<body class="min-h-screen bg-background font-sans antialiased text-foreground">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 border-b shadow-sm">
+    <div class="container flex items-center justify-between py-4">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+            <span class="font-serif text-2xl font-bold text-foreground">Café Serenity</span>
+        </a>
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-6">
+            <a href="index.html" class="nav-link relative">Home</a>
+            <a href="menu.html" class="nav-link relative">Menu</a>
+            <a href="about.html" class="nav-link relative">About</a>
+            <a href="contact.html" class="nav-link relative">Contact</a>
+            <a href="events.html" class="nav-link relative text-primary font-semibold">Events</a>
+        </div>
+        <!-- Desktop Actions -->
+        <div class="hidden md:flex items-center gap-4">
+            <a href="#" class="inline-flex items-center justify-center rounded-md border border-primary px-5 py-2 text-sm font-medium transition-colors hover:bg-primary/10">Order Online</a>
+            <a href="#" class="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Reserve a Table</a>
+        </div>
+        <!-- Mobile Hamburger -->
+        <button id="mobile-menu-toggle" aria-label="Open menu" class="md:hidden inline-flex items-center justify-center p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 max-w-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-8 gap-6">
+        <button id="mobile-menu-close" aria-label="Close menu" class="self-end mb-4 p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+        <a href="index.html" class="nav-link-mobile">Home</a>
+        <a href="menu.html" class="nav-link-mobile">Menu</a>
+        <a href="about.html" class="nav-link-mobile">About</a>
+        <a href="contact.html" class="nav-link-mobile">Contact</a>
+        <a href="events.html" class="nav-link-mobile text-primary font-semibold">Events</a>
+        <a href="#" class="inline-flex items-center justify-center rounded-md border border-primary px-5 py-2 text-sm font-medium transition-colors hover:bg-primary/10 mt-4">Order Online</a>
+        <a href="#" class="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Reserve a Table</a>
+    </div>
+    <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/30 z-40 hidden md:hidden"></div>
+</nav>
+
+  <main class="flex flex-col min-h-screen pt-24">
+    <!-- Hero Section -->
+    <section class="relative py-20 bg-muted">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center space-y-4">
+          <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold">Events & News</h1>
+          <p class="text-muted-foreground text-lg">Stay updated with our latest events, promotions, and café news.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="py-20">
+      <div class="container">
+        <div class="scroll-reveal">
+          <div class="space-y-2 mb-8 text-center">
+            <h2 class="font-serif text-3xl md:text-4xl font-bold tracking-tight">Upcoming Events</h2>
+            <p class="text-muted-foreground max-w-[700px] mx-auto">Join us for special events, workshops, and community gatherings.</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 mt-12">
+          <!-- Event Card 1 -->
+          <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" data-delay="1">
+            <div class="aspect-video relative">
+              <img src="images/placeholder.svg" alt="Live Jazz Night" class="object-cover w-full h-full rounded-t-lg" />
+              <div class="absolute top-4 left-4">
+                <span class="inline-flex items-center rounded-full border border-primary bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Music</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-bold mb-2">Live Jazz Night</h3>
+              <div class="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                <div class="flex items-center"><i data-lucide="calendar" class="h-4 w-4 mr-1"></i> May 15, 2025</div>
+                <div class="flex items-center"><i data-lucide="clock" class="h-4 w-4 mr-1"></i> 7:00 PM - 10:00 PM</div>
+              </div>
+              <p class="text-muted-foreground">Join us for an evening of smooth jazz with local musicians. Enjoy special cocktails and small plates while listening to live music.</p>
+            </div>
+            <div class="px-6 pb-6 pt-0">
+              <button class="inline-flex items-center justify-center rounded-md border border-primary px-5 py-2 text-sm font-medium transition-colors hover:bg-primary/10 w-full">Reserve a Spot</button>
+            </div>
+          </div>
+          <!-- Event Card 2 -->
+          <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" data-delay="2">
+            <div class="aspect-video relative">
+              <img src="images/placeholder.svg" alt="Coffee Brewing Workshop" class="object-cover w-full h-full rounded-t-lg" />
+              <div class="absolute top-4 left-4">
+                <span class="inline-flex items-center rounded-full border border-primary bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Workshop</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-bold mb-2">Coffee Brewing Workshop</h3>
+              <div class="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                <div class="flex items-center"><i data-lucide="calendar" class="h-4 w-4 mr-1"></i> May 22, 2025</div>
+                <div class="flex items-center"><i data-lucide="clock" class="h-4 w-4 mr-1"></i> 2:00 PM - 4:00 PM</div>
+              </div>
+              <p class="text-muted-foreground">Learn the art of brewing the perfect cup of coffee with our head barista. From pour-over to French press, master various brewing methods.</p>
+            </div>
+            <div class="px-6 pb-6 pt-0">
+              <button class="inline-flex items-center justify-center rounded-md border border-primary px-5 py-2 text-sm font-medium transition-colors hover:bg-primary/10 w-full">Reserve a Spot</button>
+            </div>
+          </div>
+          <!-- Event Card 3 -->
+          <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" data-delay="3">
+            <div class="aspect-video relative">
+              <img src="images/placeholder.svg" alt="Farm-to-Table Dinner" class="object-cover w-full h-full rounded-t-lg" />
+              <div class="absolute top-4 left-4">
+                <span class="inline-flex items-center rounded-full border border-primary bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Dining</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-bold mb-2">Farm-to-Table Dinner</h3>
+              <div class="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                <div class="flex items-center"><i data-lucide="calendar" class="h-4 w-4 mr-1"></i> June 5, 2025</div>
+                <div class="flex items-center"><i data-lucide="clock" class="h-4 w-4 mr-1"></i> 6:30 PM - 9:30 PM</div>
+              </div>
+              <p class="text-muted-foreground">A special dining experience featuring a five-course meal prepared with ingredients sourced directly from local farms.</p>
+            </div>
+            <div class="px-6 pb-6 pt-0">
+              <button class="inline-flex items-center justify-center rounded-md border border-primary px-5 py-2 text-sm font-medium transition-colors hover:bg-primary/10 w-full">Reserve a Spot</button>
+            </div>
+          </div>
+          <!-- Event Card 4 -->
+          <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" data-delay="4">
+            <div class="aspect-video relative">
+              <img src="images/placeholder.svg" alt="Book Club Meeting" class="object-cover w-full h-full rounded-t-lg" />
+              <div class="absolute top-4 left-4">
+                <span class="inline-flex items-center rounded-full border border-primary bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Community</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-bold mb-2">Book Club Meeting</h3>
+              <div class="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                <div class="flex items-center"><i data-lucide="calendar" class="h-4 w-4 mr-1"></i> June 12, 2025</div>
+                <div class="flex items-center"><i data-lucide="clock" class="h-4 w-4 mr-1"></i> 5:00 PM - 7:00 PM</div>
+              </div>
+              <p class="text-muted-foreground">Join our monthly book club discussion. This month we're reading 'The Midnight Library' by Matt Haig.</p>
+            </div>
+            <div class="px-6 pb-6 pt-0">
+              <button class="inline-flex items-center justify-center rounded-md border border-primary px-5 py-2 text-sm font-medium transition-colors hover:bg-primary/10 w-full">Reserve a Spot</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="py-20 bg-secondary">
+      <div class="container">
+        <div class="scroll-reveal">
+          <div class="space-y-2 mb-8 text-center">
+            <h2 class="font-serif text-3xl md:text-4xl font-bold tracking-tight">Latest News</h2>
+            <p class="text-muted-foreground max-w-[700px] mx-auto">Stay updated with what's happening at Café Serenity.</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 mt-12">
+          <!-- News Card 1 -->
+          <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" data-delay="1">
+            <div class="aspect-video relative">
+              <img src="images/placeholder.svg" alt="Spring Menu" class="object-cover w-full h-full rounded-t-lg" />
+              <div class="absolute top-4 left-4">
+                <span class="inline-flex items-center rounded-full border border-secondary bg-secondary/10 px-3 py-1 text-xs font-medium text-primary">Menu Update</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="text-sm text-muted-foreground mb-2">April 1, 2025</div>
+              <h3 class="font-serif text-xl font-bold mb-2">Introducing Our Spring Menu</h3>
+              <p class="text-muted-foreground mb-4">We're excited to unveil our new spring menu featuring seasonal ingredients and fresh flavors. From vibrant salads to refreshing beverages, there's something for everyone.</p>
+              <a href="#" class="text-primary hover:underline font-medium">Read More</a>
+            </div>
+          </div>
+          <!-- News Card 2 -->
+          <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" data-delay="2">
+            <div class="aspect-video relative">
+              <img src="images/placeholder.svg" alt="New Chef" class="object-cover w-full h-full rounded-t-lg" />
+              <div class="absolute top-4 left-4">
+                <span class="inline-flex items-center rounded-full border border-secondary bg-secondary/10 px-3 py-1 text-xs font-medium text-primary">Team News</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="text-sm text-muted-foreground mb-2">March 15, 2025</div>
+              <h3 class="font-serif text-xl font-bold mb-2">Meet Our New Head Pastry Chef</h3>
+              <p class="text-muted-foreground mb-4">We're thrilled to welcome Sophia Rodriguez to our team. With experience from top patisseries in Paris, she's bringing exciting new desserts to our menu.</p>
+              <a href="#" class="text-primary hover:underline font-medium">Read More</a>
+            </div>
+          </div>
+          <!-- News Card 3 -->
+          <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" data-delay="3">
+            <div class="aspect-video relative">
+              <img src="images/placeholder.svg" alt="Sustainability" class="object-cover w-full h-full rounded-t-lg" />
+              <div class="absolute top-4 left-4">
+                <span class="inline-flex items-center rounded-full border border-secondary bg-secondary/10 px-3 py-1 text-xs font-medium text-primary">Sustainability</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="text-sm text-muted-foreground mb-2">February 22, 2025</div>
+              <h3 class="font-serif text-xl font-bold mb-2">Sustainability Initiatives: Our Progress</h3>
+              <p class="text-muted-foreground mb-4">Learn about our ongoing efforts to reduce waste, source ingredients responsibly, and minimize our environmental footprint.</p>
+              <a href="#" class="text-primary hover:underline font-medium">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="py-20">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center">
+          <div class="scroll-reveal">
+            <div class="space-y-2 mb-8 text-center">
+              <h2 class="font-serif text-3xl md:text-4xl font-bold tracking-tight">Stay in the Loop</h2>
+              <p class="text-muted-foreground max-w-[700px] mx-auto">Subscribe to our newsletter for updates on events, seasonal menus, and special promotions.</p>
+            </div>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input type="email" placeholder="Your email address" class="flex-1 rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition" />
+              <button class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Subscribe</button>
+            </div>
+            <p class="text-sm text-muted-foreground mt-4">We respect your privacy and will never share your information.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-muted py-12 mt-12">
+    <div class="container grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div class="space-y-4">
+            <h3 class="font-serif text-xl font-bold">Café Serenity</h3>
+            <p class="text-muted-foreground">A cozy café serving delicious food and beverages in a warm, inviting atmosphere.</p>
+            <div class="flex gap-4">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-primary transition-colors">
+                    <i data-lucide="instagram" class="h-5 w-5"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-primary transition-colors">
+                    <i data-lucide="facebook" class="h-5 w-5"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="hover:text-primary transition-colors">
+                    <i data-lucide="twitter" class="h-5 w-5"></i>
+                </a>
+            </div>
+        </div>
+        <div class="space-y-4">
+            <h4 class="font-serif text-lg font-bold">Hours</h4>
+            <ul class="space-y-2 text-muted-foreground">
+                <li>Monday - Friday: 7am - 7pm</li>
+                <li>Saturday: 8am - 8pm</li>
+                <li>Sunday: 8am - 6pm</li>
+            </ul>
+        </div>
+        <div class="space-y-4">
+            <h4 class="font-serif text-lg font-bold">Contact</h4>
+            <address class="not-italic space-y-2 text-muted-foreground">
+                <p>123 Café Street</p>
+                <p>City, State 12345</p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Email: hello@cafeserenity.com</p>
+            </address>
+        </div>
+        <div class="space-y-4">
+            <h4 class="font-serif text-lg font-bold">Newsletter</h4>
+            <p class="text-muted-foreground">Subscribe to our newsletter for updates on events and seasonal menus.</p>
+            <form class="flex gap-2">
+                <input type="email" placeholder="Your email" class="flex-1 rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition" />
+                <button type="submit" class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <div class="container mt-8 pt-8 border-t border-border">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-sm text-muted-foreground">© <span id="year"></span> Café Serenity. All rights reserved.</p>
+            <div class="flex gap-4 text-sm text-muted-foreground">
+                <a href="privacy.html" class="hover:text-primary">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-primary">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <!-- JS for scroll reveal, navbar, and icons -->
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Set year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Initialize scroll reveal animation
+    const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+    
+    const revealOnScroll = () => {
+      scrollRevealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+</html>

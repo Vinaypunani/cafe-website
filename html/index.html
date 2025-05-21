@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Serenity</title>
+    <meta name="description" content="A cozy café serving delicious food and beverages in a warm, inviting atmosphere.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+    
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-background font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 border-b shadow-sm">
+        <div class="container flex items-center justify-between py-4">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="font-serif text-2xl font-bold text-foreground">Café Serenity</span>
+            </a>
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="index.html" class="nav-link relative">Home</a>
+                <a href="menu.html" class="nav-link relative">Menu</a>
+                <a href="about.html" class="nav-link relative">About</a>
+                <a href="contact.html" class="nav-link relative">Contact</a>
+                <a href="events.html" class="nav-link relative">Events</a>
+            </div>
+            <!-- Desktop Actions -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#" class="inline-flex items-center justify-center rounded-md border border-primary px-5 py-2 text-sm font-medium transition-colors hover:bg-primary/10">Order Online</a>
+                <a href="#" class="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Reserve a Table</a>
+            </div>
+            <!-- Mobile Hamburger -->
+            <button id="mobile-menu-toggle" aria-label="Open menu" class="md:hidden inline-flex items-center justify-center p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 max-w-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-8 gap-6">
+            <button id="mobile-menu-close" aria-label="Close menu" class="self-end mb-4 p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <a href="index.html" class="nav-link-mobile">Home</a>
+            <a href="menu.html" class="nav-link-mobile">Menu</a>
+            <a href="about.html" class="nav-link-mobile">About</a>
+            <a href="contact.html" class="nav-link-mobile">Contact</a>
+            <a href="events.html" class="nav-link-mobile">Events</a>
+            <a href="#" class="inline-flex items-center justify-center rounded-md border border-primary px-5 py-2 text-sm font-medium transition-colors hover:bg-primary/10 mt-4">Order Online</a>
+            <a href="#" class="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Reserve a Table</a>
+        </div>
+        <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/30 z-40 hidden md:hidden"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="images/cozy-cafe.png" alt="Café Serenity" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div class="container relative z-10 text-center text-white space-y-6">
+            <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-bold animate-in">Where Every Sip Tells a Story</h1>
+            <p class="max-w-2xl mx-auto text-lg md:text-xl animate-in" style="animation-delay: 0.2s">
+                Experience the perfect blend of artisanal coffee and delicious food in a warm, inviting atmosphere.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-in" style="animation-delay: 0.4s">
+                <a href="menu.html" class="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Explore Our Menu</a>
+                <a href="contact.html" class="inline-flex items-center justify-center rounded-md border border-white bg-transparent px-8 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-white/10">Reserve a Table</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Summary Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 scroll-reveal">
+                    <div class="space-y-2">
+                        <h2 class="font-serif text-3xl font-bold">Our Story</h2>
+                        <p class="text-muted-foreground">Café Serenity was born from a passion for creating a space where community and culinary excellence meet.</p>
+                    </div>
+                    <p class="text-muted-foreground">
+                        Founded in 2015, our café has become a beloved gathering place for locals and visitors alike. We
+                        source only the finest ingredients, with a focus on local and sustainable products.
+                    </p>
+                    <a href="about.html" class="inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground group">
+                        Learn More About Us
+                        <i data-lucide="arrow-right" class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+                <div class="scroll-reveal" style="animation-delay: 0.3s">
+                    <img src="images/placeholder.svg" alt="Barista preparing coffee" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Menu Items -->
+    <section class="py-20 bg-secondary">
+        <div class="container mx-auto px-4">
+            <div class="text-center space-y-2 scroll-reveal">
+                <h2 class="font-serif text-3xl font-bold">Our Signature Offerings</h2>
+                <p class="text-muted-foreground">Discover our most beloved dishes and drinks, crafted with care and the finest ingredients.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                <!-- Menu Item Cards -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal">
+                    <div class="aspect-[4/3] relative">
+                        <img src="images/avocado-toast.png" alt="Artisanal Avocado Toast" class="w-full h-full object-cover">
+                        <div class="absolute top-3 left-3 bg-primary text-white px-3 py-1 rounded-full text-xs font-medium">
+                            Breakfast
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-serif text-xl font-bold">Artisanal Avocado Toast</h3>
+                            <span class="font-medium text-primary">$12.95</span>
+                        </div>
+                        <p class="text-muted-foreground mb-4">Sourdough bread topped with smashed avocado, poached eggs, and microgreens.</p>
+                        <a href="menu.html" class="inline-flex items-center justify-center rounded-md border w-full px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground">View Details</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" style="animation-delay: 0.2s">
+                    <div class="aspect-[4/3] relative">
+                        <img src="images/placeholder.svg" alt="Signature Latte" class="w-full h-full object-cover">
+                        <div class="absolute top-3 left-3 bg-primary text-white px-3 py-1 rounded-full text-xs font-medium">
+                            Beverages
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-serif text-xl font-bold">Signature Latte</h3>
+                            <span class="font-medium text-primary">$4.95</span>
+                        </div>
+                        <p class="text-muted-foreground mb-4">Our house-blend espresso with velvety steamed milk and a touch of vanilla.</p>
+                        <a href="menu.html" class="inline-flex items-center justify-center rounded-md border w-full px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground">View Details</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" style="animation-delay: 0.4s">
+                    <div class="aspect-[4/3] relative">
+                        <img src="images/berry-tart.png" alt="Seasonal Berry Tart" class="w-full h-full object-cover">
+                        <div class="absolute top-3 left-3 bg-primary text-white px-3 py-1 rounded-full text-xs font-medium">
+                            Desserts
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-serif text-xl font-bold">Seasonal Berry Tart</h3>
+                            <span class="font-medium text-primary">$7.95</span>
+                        </div>
+                        <p class="text-muted-foreground mb-4">Buttery pastry filled with vanilla custard and topped with fresh seasonal berries.</p>
+                        <a href="menu.html" class="inline-flex items-center justify-center rounded-md border w-full px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-12">
+                <a href="menu.html" class="inline-flex items-center justify-center rounded-md border border-primary px-8 py-3 text-base font-medium transition-colors hover:bg-primary/10 bg-primary text-primary-foreground">
+                    View Full Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed / Gallery -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center space-y-2 scroll-reveal">
+                <h2 class="font-serif text-3xl font-bold">Moments at Café Serenity</h2>
+                <p class="text-muted-foreground">Follow us on Instagram @cafeserenity for more delicious moments.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                <!-- Gallery Images -->
+                <div class="aspect-square relative overflow-hidden rounded-md group scroll-reveal">
+                    <img src="images/placeholder.svg" alt="Café Interior" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="aspect-square relative overflow-hidden rounded-md group scroll-reveal" style="animation-delay: 0.1s">
+                    <img src="images/cafe-interior-customers.png" alt="Barista Making Coffee" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="aspect-square relative overflow-hidden rounded-md group scroll-reveal" style="animation-delay: 0.2s">
+                    <img src="images/placeholder.svg" alt="Fresh Pastries" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="aspect-square relative overflow-hidden rounded-md group scroll-reveal" style="animation-delay: 0.3s">
+                    <img src="images/placeholder.svg" alt="Outdoor Seating" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="aspect-square relative overflow-hidden rounded-md group scroll-reveal" style="animation-delay: 0.4s">
+                    <img src="images/placeholder.svg" alt="Coffee Art" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="aspect-square relative overflow-hidden rounded-md group scroll-reveal" style="animation-delay: 0.5s">
+                    <img src="images/placeholder.svg" alt="Café Ambiance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="aspect-square relative overflow-hidden rounded-md group scroll-reveal" style="animation-delay: 0.6s">
+                    <img src="images/placeholder.svg" alt="Special Events" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+                <div class="aspect-square relative overflow-hidden rounded-md group scroll-reveal" style="animation-delay: 0.7s">
+                    <img src="images/placeholder.svg" alt="Café Community" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-8">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-md border border-primary px-6 py-2 text-sm font-medium transition-colors hover:bg-primary/10 hover:border-primary hover:text-primary">
+                    Follow Us on Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-muted">
+        <div class="container mx-auto px-4">
+            <div class="text-center scroll-reveal">
+                <h2 class="font-serif text-3xl font-bold">What Our Customers Say</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mt-8">
+                <!-- Testimonial Cards -->
+                <div class="bg-white rounded-lg p-6 shadow-md scroll-reveal">
+                    <div class="flex mb-4">
+                        <i data-lucide="star" class="h-5 w-5 text-primary fill-primary"></i>
+                        <i data-lucide="star" class="h-5 w-5 text-primary fill-primary"></i>
+                        <i data-lucide="star" class="h-5 w-5 text-primary fill-primary"></i>
+                        <i data-lucide="star" class="h-5 w-5 text-primary fill-primary"></i>
+                        <i data-lucide="star" class="h-5 w-5 text-primary fill-primary"></i>
+                    </div>
+                    <blockquote class="italic text-muted-foreground mb-4">"The avocado toast is to die for! And the atmosphere is so peaceful and inviting. My favorite spot to work remotely."</blockquote>
+                    <p class="font-serif font-medium">Sarah Johnson</p>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 shadow-md scroll-reveal" style="animation-delay: 0.2s">
+                    <div class="flex mb-4">
+                        <i data-lucide="star" class="h-5 w-5 text-primary fill-primary"></i>
+                        <i data-lucide="star" class="h-5 w-5 text-primary fill-primary"></i>
+                        <i data-lucide="star" class="h-5 w-5 text-primary fill-primary"></i>
+                        <i data-lucide="star" class="h-5 w-5 text-primary fill-primary"></i>
+                        <i data-lucide="star" class="h-5 w-5 text-primary fill-primary"></i>
+                    </div>
+                    <blockquote class="italic text-muted-foreground mb-4">"Their signature latte is the best I've ever had. The baristas are true artists and the pastries are always fresh and delicious."</blockquote>
+                    <p class="font-serif font-medium">Michael Chen</p>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 shadow-md scroll-reveal" style="animation-delay: 0.4s">
+                    <div class="flex mb-4">
+                        <i data-lucide="star" class="h-5 w-5 text-primary fill-primary"></i>
+                        <i data-lucide="star" class="h-5 w-5 text-primary fill-primary"></i>
+                        <i data-lucide="star" class="h-5 w-5 text-primary fill-primary"></i>
+                        <i data-lucide="star" class="h-5 w-5 text-primary fill-primary"></i>
+                        <i data-lucide="star" class="h-5 w-5 text-muted-foreground"></i>
+                    </div>
+                    <blockquote class="italic text-muted-foreground mb-4">"Such a cozy spot with amazing food. The seasonal menu keeps me coming back to try new things. Highly recommend the berry tart!"</blockquote>
+                    <p class="font-serif font-medium">Emily Rodriguez</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20">
+        <div class="container">
+            <div class="bg-primary/10 dark:bg-primary/20 rounded-xl p-8 md:p-12">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-4 scroll-reveal">
+                        <h2 class="font-serif text-3xl md:text-4xl font-bold">Ready to Experience Café Serenity?</h2>
+                        <p class="text-muted-foreground">Join us for a memorable dining experience or order your favorites to enjoy at home.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            <a href="contact.html" class="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-base font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Reserve a Table</a>
+                            <a href="menu.html" class="inline-flex items-center justify-center rounded-md border border-primary px-8 py-3 text-base font-medium transition-colors hover:bg-primary/10 hover:border-primary hover:text-primary bg-white dark:bg-background">Order Online</a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 scroll-reveal" style="animation-delay: 0.2s">
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="clock" class="h-5 w-5 text-primary"></i>
+                                <h3 class="font-medium">Hours</h3>
+                            </div>
+                            <p class="text-sm text-muted-foreground">Mon-Fri: 7am - 7pm</p>
+                            <p class="text-sm text-muted-foreground">Sat: 8am - 8pm</p>
+                            <p class="text-sm text-muted-foreground">Sun: 8am - 6pm</p>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="map-pin" class="h-5 w-5 text-primary"></i>
+                                <h3 class="font-medium">Location</h3>
+                            </div>
+                            <p class="text-sm text-muted-foreground">123 Café Street</p>
+                            <p class="text-sm text-muted-foreground">City, State 12345</p>
+                            <a href="contact.html" class="text-primary text-sm font-medium hover:underline">Get Directions</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-muted py-12 mt-12">
+        <div class="container grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div class="space-y-4">
+                <h3 class="font-serif text-xl font-bold">Café Serenity</h3>
+                <p class="text-muted-foreground">A cozy café serving delicious food and beverages in a warm, inviting atmosphere.</p>
+                <div class="flex gap-4">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-primary transition-colors">
+                        <i data-lucide="instagram" class="h-5 w-5"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-primary transition-colors">
+                        <i data-lucide="facebook" class="h-5 w-5"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="hover:text-primary transition-colors">
+                        <i data-lucide="twitter" class="h-5 w-5"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <h4 class="font-serif text-lg font-bold">Hours</h4>
+                <ul class="space-y-2 text-muted-foreground">
+                    <li>Monday - Friday: 7am - 7pm</li>
+                    <li>Saturday: 8am - 8pm</li>
+                    <li>Sunday: 8am - 6pm</li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h4 class="font-serif text-lg font-bold">Contact</h4>
+                <address class="not-italic space-y-2 text-muted-foreground">
+                    <p>123 Café Street</p>
+                    <p>City, State 12345</p>
+                    <p>Phone: (123) 456-7890</p>
+                    <p>Email: hello@cafeserenity.com</p>
+                </address>
+            </div>
+            <div class="space-y-4">
+                <h4 class="font-serif text-lg font-bold">Newsletter</h4>
+                <p class="text-muted-foreground">Subscribe to our newsletter for updates on events and seasonal menus.</p>
+                <form class="flex gap-2">
+                    <input type="email" placeholder="Your email" class="flex-1 rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition" />
+                    <button type="submit" class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container mt-8 pt-8 border-t border-border">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-muted-foreground">© <span id="year"></span> Café Serenity. All rights reserved.</p>
+                <div class="flex gap-4 text-sm text-muted-foreground">
+                    <a href="privacy.html" class="hover:text-primary">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-primary">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html> 

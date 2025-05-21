@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu | Café Serenity</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;600;700&family=Young+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .animate-in { animation: animateIn 0.5s ease-in-out forwards; opacity: 0; }
+    @keyframes animateIn {
+      from { opacity: 0; transform: translateY(10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .scroll-reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out;}
+    .scroll-reveal.active { opacity: 1; transform: translateY(0);}
+    .font-serif { font-family: 'Young Serif', serif !important; }
+    .font-sans { font-family: 'Mona Sans', Arial, sans-serif !important; }
+  </style>
+</head>
+<body class="min-h-screen bg-background font-sans antialiased text-foreground">
+  <!-- Navbar (copied from home page) -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 border-b shadow-sm">
+    <div class="container flex items-center justify-between py-4">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+            <span class="font-serif text-2xl font-bold text-foreground">Café Serenity</span>
+        </a>
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-6">
+            <a href="index.html" class="nav-link relative">Home</a>
+            <a href="menu.html" class="nav-link relative">Menu</a>
+            <a href="about.html" class="nav-link relative">About</a>
+            <a href="contact.html" class="nav-link relative">Contact</a>
+            <a href="events.html" class="nav-link relative">Events</a>
+        </div>
+        <!-- Desktop Actions -->
+        <div class="hidden md:flex items-center gap-4">
+            <a href="#" class="inline-flex items-center justify-center rounded-md border border-primary px-5 py-2 text-sm font-medium transition-colors hover:bg-primary/10">Order Online</a>
+            <a href="#" class="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Reserve a Table</a>
+        </div>
+        <!-- Mobile Hamburger -->
+        <button id="mobile-menu-toggle" aria-label="Open menu" class="md:hidden inline-flex items-center justify-center p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 max-w-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-8 gap-6">
+        <button id="mobile-menu-close" aria-label="Close menu" class="self-end mb-4 p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+        <a href="index.html" class="nav-link-mobile">Home</a>
+        <a href="menu.html" class="nav-link-mobile">Menu</a>
+        <a href="about.html" class="nav-link-mobile">About</a>
+        <a href="contact.html" class="nav-link-mobile">Contact</a>
+        <a href="events.html" class="nav-link-mobile">Events</a>
+        <a href="#" class="inline-flex items-center justify-center rounded-md border border-primary px-5 py-2 text-sm font-medium transition-colors hover:bg-primary/10 mt-4">Order Online</a>
+        <a href="#" class="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Reserve a Table</a>
+    </div>
+    <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/30 z-40 hidden md:hidden"></div>
+</nav>
+
+  <main class="flex flex-col min-h-screen pt-24">
+    <!-- Hero Section -->
+    <section class="relative py-20 bg-muted">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center space-y-4">
+          <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold">Our Menu</h1>
+          <p class="text-muted-foreground text-lg">Discover our seasonal offerings, crafted with locally-sourced ingredients and a lot of love.</p>
+          <a href="#" download class="inline-flex items-center justify-center rounded-md border border-primary px-6 py-2 text-sm font-medium transition-colors bg-white hover:bg-[--accent] hover:text-[--primary-foreground] hover:border-transparent focus:outline-none focus:ring-2 focus:ring-primary mt-4 group">
+            <i data-lucide="download" class="mr-2 h-4 w-4 transition-colors group-hover:text-primary-foreground"></i> Download PDF Menu
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dietary Filters -->
+    <section class="py-8 border-b">
+      <div class="container">
+        <div class="flex flex-wrap justify-center gap-2">
+          <span class="inline-flex items-center rounded-full border border-primary bg-white dark:bg-background px-4 py-1 text-sm font-medium text-black transition-colors">All</span>
+          <span class="inline-flex items-center rounded-full border border-primary bg-white dark:bg-background px-4 py-1 text-sm font-medium text-black transition-colors">Vegetarian</span>
+          <span class="inline-flex items-center rounded-full border border-primary bg-white dark:bg-background px-4 py-1 text-sm font-medium text-black transition-colors">Vegan</span>
+          <span class="inline-flex items-center rounded-full border border-primary bg-white dark:bg-background px-4 py-1 text-sm font-medium text-black transition-colors">Gluten-Free</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Categories Tabs -->
+    <section class="py-8 md:py-12">
+      <div class="container">
+        <div class="w-full flex justify-center">
+          <div class="bg-muted rounded-xl px-4 md:px-8 py-1 w-full flex justify-center">
+            <div class="flex flex-wrap h-auto gap-1 md:gap-2" id="menu-tabs">
+              <button class="tab-trigger px-3 md:px-6 py-2 rounded-md font-medium text-sm md:text-base transition-colors bg-white text-foreground font-bold shadow-sm" data-tab="breakfast">Breakfast</button>
+              <button class="tab-trigger px-3 md:px-6 py-2 rounded-md font-medium text-sm md:text-base transition-colors text-muted-foreground" data-tab="lunch">Lunch</button>
+              <button class="tab-trigger px-3 md:px-6 py-2 rounded-md font-medium text-sm md:text-base transition-colors text-muted-foreground" data-tab="beverages">Beverages</button>
+              <button class="tab-trigger px-3 md:px-6 py-2 rounded-md font-medium text-sm md:text-base transition-colors text-muted-foreground" data-tab="desserts">Desserts</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Contents -->
+        <div id="tab-content-breakfast" class="tab-content">
+          <div class="section-heading text-center text-4xl md:text-5xl font-serif font-bold mb-2 mt-12">Breakfast</div>
+          <p class="text-muted-foreground text-center mb-8">Start your day with our delicious breakfast options, served until 11:30am.</p>
+          <div class="grid md:grid-cols-2 gap-6 mt-8">
+            <!-- Menu Item Card Example -->
+            <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal flex h-44">
+              <div class="relative w-1/2 bg-gray-100 flex items-center justify-center h-44">
+                <img src="images/placeholder.svg" alt="Avocado Toast" class="object-cover w-full h-full rounded-l-lg" />
+              </div>
+              <div class="p-6 flex flex-col w-1/2 h-44">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-serif text-xl font-bold">Avocado Toast</h3>
+                  <span class="font-medium text-primary">$12.95</span>
+                </div>
+                <p class="text-muted-foreground text-sm flex-1">Sourdough bread topped with smashed avocado, poached eggs, and microgreens.</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="inline-flex items-center rounded-full border border-primary bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Vegetarian</span>
+                </div>
+               </div>
+            </div>
+            <!-- More cards -->
+            <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal flex h-44">
+              <div class="relative w-1/2 bg-gray-100 flex items-center justify-center h-44">
+                <img src="images/placeholder.svg" alt="Breakfast Bowl" class="object-cover w-full h-full rounded-l-lg" />
+              </div>
+              <div class="p-6 flex flex-col w-1/2 h-44">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-serif text-xl font-bold">Breakfast Bowl</h3>
+                  <span class="font-medium text-primary">$14.95</span>
+                </div>
+                <p class="text-muted-foreground text-sm flex-1">Quinoa, roasted sweet potatoes, kale, avocado, and a soft-boiled egg.</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="inline-flex items-center rounded-full border border-primary bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Gluten-free</span>
+                </div>
+               </div>
+            </div>
+            <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal flex h-44">
+              <div class="relative w-1/2 bg-gray-100 flex items-center justify-center h-44">
+                <img src="images/placeholder.svg" alt="Buttermilk Pancakes" class="object-cover w-full h-full rounded-l-lg" />
+              </div>
+              <div class="p-6 flex flex-col w-1/2 h-44">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-serif text-xl font-bold">Buttermilk Pancakes</h3>
+                  <span class="font-medium text-primary">$11.95</span>
+                </div>
+                <p class="text-muted-foreground text-sm flex-1">Fluffy pancakes served with maple syrup and seasonal berries.</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="inline-flex items-center rounded-full border border-primary bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Vegetarian</span>
+                </div>
+               </div>
+            </div>
+            <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal flex h-44">
+              <div class="relative w-1/2 bg-gray-100 flex items-center justify-center h-44">
+                <img src="images/placeholder.svg" alt="Vegan Breakfast Burrito" class="object-cover w-full h-full rounded-l-lg" />
+              </div>
+              <div class="p-6 flex flex-col w-1/2 h-44">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-serif text-xl font-bold">Vegan Breakfast Burrito</h3>
+                  <span class="font-medium text-primary">$13.95</span>
+                </div>
+                <p class="text-muted-foreground text-sm flex-1">Scrambled tofu, black beans, roasted vegetables, and avocado in a whole wheat wrap.</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="inline-flex items-center rounded-full border border-primary bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Vegan</span>
+                </div>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-content-lunch" class="tab-content hidden">
+          <div class="section-heading text-center text-4xl md:text-5xl font-serif font-bold mb-2 mt-12">Lunch</div>
+          <p class="text-muted-foreground text-center mb-8">Enjoy our lunch offerings, available from 11:30am to 4:00pm.</p>
+          <div class="grid md:grid-cols-2 gap-6 mt-8">
+            <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal flex h-44">
+              <div class="relative w-1/2 bg-gray-100 flex items-center justify-center h-44">
+                <img src="images/placeholder.svg" alt="Harvest Salad" class="object-cover w-full h-full rounded-l-lg" />
+              </div>
+              <div class="p-6 flex flex-col w-1/2 h-44">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-serif text-xl font-bold">Harvest Salad</h3>
+                  <span class="font-medium text-primary">$13.95</span>
+                </div>
+                <p class="text-muted-foreground text-sm flex-1">Mixed greens, roasted vegetables, goat cheese, and balsamic vinaigrette.</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="inline-flex items-center rounded-full border border-primary bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Vegetarian</span>
+                  <span class="inline-flex items-center rounded-full border border-primary bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Gluten-free</span>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal flex h-44">
+              <div class="relative w-1/2 bg-gray-100 flex items-center justify-center h-44">
+                <img src="images/placeholder.svg" alt="Grilled Chicken Sandwich" class="object-cover w-full h-full rounded-l-lg" />
+              </div>
+              <div class="p-6 flex flex-col w-1/2 h-44">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-serif text-xl font-bold">Grilled Chicken Sandwich</h3>
+                  <span class="font-medium text-primary">$15.95</span>
+                </div>
+                <p class="text-muted-foreground text-sm flex-1">Herb-marinated chicken breast with avocado, bacon, and aioli on ciabatta.</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <!-- No dietary badge -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-content-beverages" class="tab-content hidden">
+          <div class="section-heading text-center text-4xl md:text-5xl font-serif font-bold mb-2 mt-12">Beverages</div>
+          <p class="text-muted-foreground text-center mb-8">Our signature coffee drinks and refreshing beverages.</p>
+          <div class="grid md:grid-cols-2 gap-6 mt-8">
+            <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal flex h-44">
+              <div class="relative w-1/2 bg-gray-100 flex items-center justify-center h-44">
+                <img src="images/placeholder.svg" alt="Signature Latte" class="object-cover w-full h-full rounded-l-lg" />
+              </div>
+              <div class="p-6 flex flex-col w-1/2 h-44">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-serif text-xl font-bold">Signature Latte</h3>
+                  <span class="font-medium text-primary">$5.95</span>
+                </div>
+                <p class="text-muted-foreground text-sm flex-1">Espresso with steamed milk and house-made vanilla syrup.</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <!-- No dietary badge -->
+                </div>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal flex h-44">
+              <div class="relative w-1/2 bg-gray-100 flex items-center justify-center h-44">
+                <img src="images/placeholder.svg" alt="Iced Matcha" class="object-cover w-full h-full rounded-l-lg" />
+              </div>
+              <div class="p-6 flex flex-col w-1/2 h-44">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-serif text-xl font-bold">Iced Matcha</h3>
+                  <span class="font-medium text-primary">$4.95</span>
+                </div>
+                <p class="text-muted-foreground text-sm flex-1">Japanese matcha blended with oat milk, served over ice.</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="inline-flex items-center rounded-full border border-primary bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Vegan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-content-desserts" class="tab-content hidden">
+          <div class="section-heading text-center text-4xl md:text-5xl font-serif font-bold mb-2 mt-12">Desserts</div>
+          <p class="text-muted-foreground text-center mb-8">Indulge in our house-made desserts and pastries.</p>
+          <div class="grid md:grid-cols-2 gap-6 mt-8">
+            <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal flex h-44">
+              <div class="relative w-1/2 bg-gray-100 flex items-center justify-center h-44">
+                <img src="images/placeholder.svg" alt="Seasonal Berry Tart" class="object-cover w-full h-full rounded-l-lg" />
+              </div>
+              <div class="p-6 flex flex-col w-1/2 h-44">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-serif text-xl font-bold">Seasonal Berry Tart</h3>
+                  <span class="font-medium text-primary">$7.95</span>
+                </div>
+                <p class="text-muted-foreground text-sm flex-1">Buttery tart shell filled with pastry cream and topped with fresh berries.</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="inline-flex items-center rounded-full border border-primary bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Vegetarian</span>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal flex h-44">
+              <div class="relative w-1/2 bg-gray-100 flex items-center justify-center h-44">
+                <img src="images/placeholder.svg" alt="Chocolate Mousse" class="object-cover w-full h-full rounded-l-lg" />
+              </div>
+              <div class="p-6 flex flex-col w-1/2 h-44">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-serif text-xl font-bold">Chocolate Mousse</h3>
+                  <span class="font-medium text-primary">$6.95</span>
+                </div>
+                <p class="text-muted-foreground text-sm flex-1">Rich chocolate mousse topped with whipped cream and chocolate shavings.</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="inline-flex items-center rounded-full border border-primary bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Vegetarian</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-12 bg-secondary">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center space-y-6">
+          <div class="scroll-reveal">
+            <h2 class="font-serif text-3xl font-bold">Ready to Order?</h2>
+            <p class="text-muted-foreground">Place an order for pickup or delivery, or reserve a table for a dine-in experience.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+              <a href="#" class="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-base font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Order Online</a>
+              <a href="/contact" class="inline-flex items-center justify-center rounded-md border border-primary px-8 py-3 text-base font-medium transition-colors hover:bg-primary/10 hover:border-primary hover:text-primary bg-white dark:bg-background">Reserve a Table</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (copied from home page) -->
+  <footer class="bg-muted py-12 mt-12">
+    <div class="container grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div class="space-y-4">
+            <h3 class="font-serif text-xl font-bold">Café Serenity</h3>
+            <p class="text-muted-foreground">A cozy café serving delicious food and beverages in a warm, inviting atmosphere.</p>
+            <div class="flex gap-4">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-primary transition-colors">
+                    <i data-lucide="instagram" class="h-5 w-5"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-primary transition-colors">
+                    <i data-lucide="facebook" class="h-5 w-5"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="hover:text-primary transition-colors">
+                    <i data-lucide="twitter" class="h-5 w-5"></i>
+                </a>
+            </div>
+        </div>
+        <div class="space-y-4">
+            <h4 class="font-serif text-lg font-bold">Hours</h4>
+            <ul class="space-y-2 text-muted-foreground">
+                <li>Monday - Friday: 7am - 7pm</li>
+                <li>Saturday: 8am - 8pm</li>
+                <li>Sunday: 8am - 6pm</li>
+            </ul>
+        </div>
+        <div class="space-y-4">
+            <h4 class="font-serif text-lg font-bold">Contact</h4>
+            <address class="not-italic space-y-2 text-muted-foreground">
+                <p>123 Café Street</p>
+                <p>City, State 12345</p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Email: hello@cafeserenity.com</p>
+            </address>
+        </div>
+        <div class="space-y-4">
+            <h4 class="font-serif text-lg font-bold">Newsletter</h4>
+            <p class="text-muted-foreground">Subscribe to our newsletter for updates on events and seasonal menus.</p>
+            <form class="flex gap-2">
+                <input type="email" placeholder="Your email" class="flex-1 rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition" />
+                <button type="submit" class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <div class="container mt-8 pt-8 border-t border-border">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-sm text-muted-foreground">© <span id="year"></span> Café Serenity. All rights reserved.</p>
+            <div class="flex gap-4 text-sm text-muted-foreground">
+                <a href="privacy.html" class="hover:text-primary">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-primary">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <!-- JS for tabs, scroll reveal, navbar, and icons -->
+  <script src="js/main.js"></script>
+  <script>
+    // Tabs logic
+    const tabTriggers = document.querySelectorAll('.tab-trigger');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabTriggers.forEach(trigger => {
+      trigger.addEventListener('click', function() {
+        tabTriggers.forEach(t => t.classList.remove('bg-primary', 'text-primary-foreground'));
+        this.classList.add('bg-primary', 'text-primary-foreground');
+        const tab = this.getAttribute('data-tab');
+        tabContents.forEach(content => {
+          content.classList.add('hidden');
+        });
+        document.getElementById('tab-content-' + tab).classList.remove('hidden');
+      });
+    });
+    // Set default tab
+    document.querySelector('.tab-trigger[data-tab="breakfast"]').click();
+    // Set year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html> 

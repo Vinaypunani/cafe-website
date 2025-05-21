@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 33% 99%;
+    --foreground: 20 10% 15%;
+
+    --card: 30 33% 99%;
+    --card-foreground: 20 10% 15%;
+
+    --popover: 30 33% 99%;
+    --popover-foreground: 20 10% 15%;
+
+    --primary: 25 95% 53%;
+    --primary-foreground: 30 33% 99%;
+
+    --secondary: 35 40% 92%;
+    --secondary-foreground: 20 10% 15%;
+
+    --muted: 35 40% 92%;
+    --muted-foreground: 20 10% 40%;
+
+    --accent: 15 80% 50%;
+    --accent-foreground: 30 33% 99%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 30 33% 99%;
+
+    --border: 20 10% 85%;
+    --input: 20 10% 85%;
+    --ring: 25 95% 53%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 10% 10%;
+    --foreground: 30 33% 99%;
+
+    --card: 20 10% 10%;
+    --card-foreground: 30 33% 99%;
+
+    --popover: 20 10% 10%;
+    --popover-foreground: 30 33% 99%;
+
+    --primary: 25 95% 53%;
+    --primary-foreground: 30 33% 99%;
+
+    --secondary: 20 10% 20%;
+    --secondary-foreground: 30 33% 99%;
+
+    --muted: 20 10% 20%;
+    --muted-foreground: 30 33% 70%;
+
+    --accent: 15 80% 50%;
+    --accent-foreground: 30 33% 99%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 30 33% 99%;
+
+    --border: 20 10% 25%;
+    --input: 20 10% 25%;
+    --ring: 25 95% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+}
+
+.animate-in {
+  animation: animateIn 0.5s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

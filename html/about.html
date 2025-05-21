@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Café Serenity</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;600;700&family=Young+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .animate-in { animation: animateIn 0.5s ease-in-out forwards; opacity: 0; }
+    @keyframes animateIn {
+      from { opacity: 0; transform: translateY(10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .scroll-reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out;}
+    .scroll-reveal.active { opacity: 1; transform: translateY(0);}
+    .font-serif { font-family: 'Young Serif', serif !important; }
+    .font-sans { font-family: 'Mona Sans', Arial, sans-serif !important; }
+  </style>
+</head>
+<body class="min-h-screen bg-background font-sans antialiased text-foreground">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 border-b shadow-sm">
+    <div class="container flex items-center justify-between py-4">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+            <span class="font-serif text-2xl font-bold text-foreground">Café Serenity</span>
+        </a>
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-6">
+            <a href="index.html" class="nav-link relative">Home</a>
+            <a href="menu.html" class="nav-link relative">Menu</a>
+            <a href="about.html" class="nav-link relative text-primary font-semibold">About</a>
+            <a href="contact.html" class="nav-link relative">Contact</a>
+            <a href="events.html" class="nav-link relative">Events</a>
+        </div>
+        <!-- Desktop Actions -->
+        <div class="hidden md:flex items-center gap-4">
+            <a href="#" class="inline-flex items-center justify-center rounded-md border border-primary px-5 py-2 text-sm font-medium transition-colors hover:bg-primary/10">Order Online</a>
+            <a href="#" class="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Reserve a Table</a>
+        </div>
+        <!-- Mobile Hamburger -->
+        <button id="mobile-menu-toggle" aria-label="Open menu" class="md:hidden inline-flex items-center justify-center p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 max-w-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-8 gap-6">
+        <button id="mobile-menu-close" aria-label="Close menu" class="self-end mb-4 p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+        <a href="index.html" class="nav-link-mobile">Home</a>
+        <a href="menu.html" class="nav-link-mobile">Menu</a>
+        <a href="about.html" class="nav-link-mobile text-primary font-semibold">About</a>
+        <a href="contact.html" class="nav-link-mobile">Contact</a>
+        <a href="events.html" class="nav-link-mobile">Events</a>
+        <a href="#" class="inline-flex items-center justify-center rounded-md border border-primary px-5 py-2 text-sm font-medium transition-colors hover:bg-primary/10 mt-4">Order Online</a>
+        <a href="#" class="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Reserve a Table</a>
+    </div>
+    <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/30 z-40 hidden md:hidden"></div>
+</nav>
+
+  <main class="flex flex-col min-h-screen pt-24">
+    <!-- Hero Section -->
+    <section class="relative py-20 bg-muted">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center space-y-4">
+          <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold">Our Story</h1>
+          <p class="text-muted-foreground text-lg">Learn about our journey, our values, and the people who make Café Serenity special.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="py-20">
+      <div class="container">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="scroll-reveal">
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold tracking-tight">From Passion to Reality</h2>
+                <p class="text-muted-foreground">How Café Serenity came to be.</p>
+              </div>
+              <div class="space-y-4 text-muted-foreground">
+                <p>Café Serenity was born in 2015 from a simple yet profound vision: to create a space where exceptional coffee, delicious food, and community could thrive together.</p>
+                <p>Our founder, Emma Chen, spent years traveling the world, exploring coffee cultures from Ethiopia to Colombia, before returning home with a dream to create something special.</p>
+                <p>What started as a tiny corner café with just three tables has grown into a beloved community hub, but our core values remain unchanged: quality, sustainability, and creating moments of joy through food and drink.</p>
+              </div>
+            </div>
+          </div>
+          <div class="scroll-reveal" data-delay="3">
+            <img src="images/placeholder.svg" alt="Café Serenity interior" class="rounded-lg shadow-lg w-full" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 bg-secondary">
+      <div class="container">
+        <div class="scroll-reveal">
+          <div class="space-y-2 mb-8 text-center">
+            <h2 class="font-serif text-3xl md:text-4xl font-bold tracking-tight">Our Values</h2>
+            <p class="text-muted-foreground max-w-[700px] mx-auto">The principles that guide everything we do.</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+          <!-- Value Cards -->
+          <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" data-delay="2">
+            <div class="p-6 flex flex-col items-center text-center">
+              <div class="mb-4">
+                <i data-lucide="coffee" class="h-10 w-10 text-primary"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold mb-2">Quality</h3>
+              <p class="text-muted-foreground">We never compromise on quality. From our coffee beans to our ingredients, we source only the best.</p>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" data-delay="3">
+            <div class="p-6 flex flex-col items-center text-center">
+              <div class="mb-4">
+                <i data-lucide="leaf" class="h-10 w-10 text-primary"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold mb-2">Sustainability</h3>
+              <p class="text-muted-foreground">We're committed to sustainable practices, from our compostable packaging to our locally-sourced ingredients.</p>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" data-delay="4">
+            <div class="p-6 flex flex-col items-center text-center">
+              <div class="mb-4">
+                <i data-lucide="users" class="h-10 w-10 text-primary"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold mb-2">Community</h3>
+              <p class="text-muted-foreground">We believe in creating spaces where people can connect, share ideas, and build relationships.</p>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" data-delay="5">
+            <div class="p-6 flex flex-col items-center text-center">
+              <div class="mb-4">
+                <i data-lucide="utensils" class="h-10 w-10 text-primary"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold mb-2">Creativity</h3>
+              <p class="text-muted-foreground">We approach food and drink as an art form, constantly innovating while respecting tradition.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20">
+      <div class="container">
+        <div class="scroll-reveal">
+          <div class="space-y-2 mb-8 text-center">
+            <h2 class="font-serif text-3xl md:text-4xl font-bold tracking-tight">Meet Our Team</h2>
+            <p class="text-muted-foreground max-w-[700px] mx-auto">The passionate people behind Café Serenity.</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+          <!-- Team Member Cards -->
+          <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" data-delay="2">
+            <div class="aspect-square relative">
+              <img src="images/placeholder.svg" alt="Emma Chen" class="object-cover w-full h-full" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-xl font-bold">Emma Chen</h3>
+              <p class="text-primary font-medium mb-2">Founder & Head Chef</p>
+              <p class="text-muted-foreground">With a background in fine dining and a passion for coffee, Emma brings her global culinary experiences to every dish at Café Serenity.</p>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" data-delay="3">
+            <div class="aspect-square relative">
+              <img src="images/placeholder.svg" alt="Marcus Johnson" class="object-cover w-full h-full" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-xl font-bold">Marcus Johnson</h3>
+              <p class="text-primary font-medium mb-2">Head Barista</p>
+              <p class="text-muted-foreground">A certified Q-grader with over 10 years of experience, Marcus oversees our coffee program and trains our barista team.</p>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-background rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-reveal" data-delay="4">
+            <div class="aspect-square relative">
+              <img src="images/placeholder.svg" alt="Sophia Rodriguez" class="object-cover w-full h-full" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-xl font-bold">Sophia Rodriguez</h3>
+              <p class="text-primary font-medium mb-2">Pastry Chef</p>
+              <p class="text-muted-foreground">Trained in Paris, Sophia creates our delectable pastries and desserts, combining classic techniques with innovative flavors.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sourcing & Sustainability -->
+    <section class="py-20 bg-muted">
+      <div class="container">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="scroll-reveal" data-delay="3">
+            <img src="images/placeholder.svg" alt="Coffee sourcing" class="rounded-lg shadow-lg w-full" />
+          </div>
+          <div class="scroll-reveal">
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold tracking-tight">Our Commitment to Sustainability</h2>
+                <p class="text-muted-foreground">How we source our ingredients and reduce our environmental impact.</p>
+              </div>
+              <div class="space-y-4 text-muted-foreground">
+                <p>We believe that great food and beverages start with exceptional ingredients. That's why we partner with local farmers and producers who share our commitment to quality and sustainability.</p>
+                <p>Our coffee beans are ethically sourced through direct trade relationships with farmers in Ethiopia, Colombia, and Guatemala, ensuring fair compensation and sustainable farming practices.</p>
+                <p>In our kitchen, we prioritize seasonal, organic produce from farms within a 100-mile radius, reducing our carbon footprint while supporting local agriculture.</p>
+                <p>From compostable packaging to our comprehensive recycling program, we're constantly working to minimize waste and reduce our environmental impact.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Behind the Scenes -->
+    <section class="py-20">
+      <div class="container">
+        <div class="scroll-reveal">
+          <div class="space-y-2 mb-8 text-center">
+            <h2 class="font-serif text-3xl md:text-4xl font-bold tracking-tight">Behind the Scenes</h2>
+            <p class="text-muted-foreground max-w-[700px] mx-auto">A glimpse into our kitchen and coffee bar.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+          <!-- Gallery Images -->
+          <div class="scroll-reveal" data-delay="0">
+            <div class="aspect-square relative overflow-hidden rounded-md">
+              <img src="images/placeholder.svg" alt="Barista grinding coffee beans" class="object-cover w-full h-full" />
+            </div>
+          </div>
+
+          <div class="scroll-reveal" data-delay="1">
+            <div class="aspect-square relative overflow-hidden rounded-md">
+              <img src="images/placeholder.svg" alt="Chef preparing food in restaurant kitchen" class="object-cover w-full h-full" />
+            </div>
+          </div>
+
+          <div class="scroll-reveal" data-delay="2">
+            <div class="aspect-square relative overflow-hidden rounded-md">
+              <img src="images/placeholder.svg" alt="Pastry chef decorating cake" class="object-cover w-full h-full" />
+            </div>
+          </div>
+
+          <div class="scroll-reveal" data-delay="3">
+            <div class="aspect-square relative overflow-hidden rounded-md">
+              <img src="images/placeholder.svg" alt="Coffee being brewed in chemex" class="object-cover w-full h-full" />
+            </div>
+          </div>
+
+          <div class="scroll-reveal" data-delay="4">
+            <div class="aspect-square relative overflow-hidden rounded-md">
+              <img src="images/placeholder.svg" alt="Chef plating food with tweezers" class="object-cover w-full h-full" />
+            </div>
+          </div>
+
+          <div class="scroll-reveal" data-delay="5">
+            <div class="aspect-square relative overflow-hidden rounded-md">
+              <img src="images/placeholder.svg" alt="Barista steaming milk for latte" class="object-cover w-full h-full" />
+            </div>
+          </div>
+
+          <div class="scroll-reveal" data-delay="6">
+            <div class="aspect-square relative overflow-hidden rounded-md">
+              <img src="images/placeholder.svg" alt="Fresh bread being taken out of oven" class="object-cover w-full h-full" />
+            </div>
+          </div>
+
+          <div class="scroll-reveal" data-delay="7">
+            <div class="aspect-square relative overflow-hidden rounded-md">
+              <img src="images/placeholder.svg" alt="Staff meeting in cafe before opening" class="object-cover w-full h-full" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-muted py-12 mt-12">
+    <div class="container grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div class="space-y-4">
+            <h3 class="font-serif text-xl font-bold">Café Serenity</h3>
+            <p class="text-muted-foreground">A cozy café serving delicious food and beverages in a warm, inviting atmosphere.</p>
+            <div class="flex gap-4">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-primary transition-colors">
+                    <i data-lucide="instagram" class="h-5 w-5"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-primary transition-colors">
+                    <i data-lucide="facebook" class="h-5 w-5"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="hover:text-primary transition-colors">
+                    <i data-lucide="twitter" class="h-5 w-5"></i>
+                </a>
+            </div>
+        </div>
+        <div class="space-y-4">
+            <h4 class="font-serif text-lg font-bold">Hours</h4>
+            <ul class="space-y-2 text-muted-foreground">
+                <li>Monday - Friday: 7am - 7pm</li>
+                <li>Saturday: 8am - 8pm</li>
+                <li>Sunday: 8am - 6pm</li>
+            </ul>
+        </div>
+        <div class="space-y-4">
+            <h4 class="font-serif text-lg font-bold">Contact</h4>
+            <address class="not-italic space-y-2 text-muted-foreground">
+                <p>123 Café Street</p>
+                <p>City, State 12345</p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Email: hello@cafeserenity.com</p>
+            </address>
+        </div>
+        <div class="space-y-4">
+            <h4 class="font-serif text-lg font-bold">Newsletter</h4>
+            <p class="text-muted-foreground">Subscribe to our newsletter for updates on events and seasonal menus.</p>
+            <form class="flex gap-2">
+                <input type="email" placeholder="Your email" class="flex-1 rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition" />
+                <button type="submit" class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <div class="container mt-8 pt-8 border-t border-border">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-sm text-muted-foreground">© <span id="year"></span> Café Serenity. All rights reserved.</p>
+            <div class="flex gap-4 text-sm text-muted-foreground">
+                <a href="privacy.html" class="hover:text-primary">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-primary">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <!-- JS for scroll reveal, navbar, and icons -->
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Set year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Initialize scroll reveal animation
+    const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+    
+    const revealOnScroll = () => {
+      scrollRevealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+</html>
