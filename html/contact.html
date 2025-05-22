@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Café Serenity</title>
+    <meta name="description" content="Get in touch with Café Serenity for reservations, inquiries, or feedback.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-background font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 border-b shadow-sm">
+        <div class="container flex items-center justify-between py-4">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="font-serif text-2xl font-bold text-foreground">Café Serenity</span>
+            </a>
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="index.html" class="nav-link relative">Home</a>
+                <a href="menu.html" class="nav-link relative">Menu</a>
+                <a href="about.html" class="nav-link relative">About</a>
+                <a href="contact.html" class="nav-link relative active">Contact</a>
+                <a href="events.html" class="nav-link relative">Events</a>
+            </div>
+            <!-- Desktop Actions -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#" class="inline-flex items-center justify-center rounded-md border border-primary px-5 py-2 text-sm font-medium transition-colors hover:bg-primary/10">Order Online</a>
+                <a href="#" class="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Reserve a Table</a>
+            </div>
+            <!-- Mobile Hamburger -->
+            <button id="mobile-menu-toggle" aria-label="Open menu" class="md:hidden inline-flex items-center justify-center p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 max-w-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-8 gap-6">
+            <button id="mobile-menu-close" aria-label="Close menu" class="self-end mb-4 p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <a href="index.html" class="nav-link-mobile">Home</a>
+            <a href="menu.html" class="nav-link-mobile">Menu</a>
+            <a href="about.html" class="nav-link-mobile">About</a>
+            <a href="contact.html" class="nav-link-mobile active">Contact</a>
+            <a href="events.html" class="nav-link-mobile">Events</a>
+            <a href="#" class="inline-flex items-center justify-center rounded-md border border-primary px-5 py-2 text-sm font-medium transition-colors hover:bg-primary/10 mt-4">Order Online</a>
+            <a href="#" class="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Reserve a Table</a>
+        </div>
+        <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/30 z-40 hidden md:hidden"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-16 bg-muted">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center space-y-4">
+                <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold animate-in">Contact Us</h1>
+                <p class="text-muted-foreground text-lg animate-in" style="animation-delay: 0.2s">
+                    Get in touch with us for reservations, inquiries, or feedback.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8 scroll-reveal">
+                    <div class="space-y-2">
+                        <h2 class="font-serif text-3xl font-bold">Get in Touch</h2>
+                        <p class="text-muted-foreground">We'd love to hear from you. Here's how you can reach us.</p>
+                    </div>
+
+                    <div class="grid gap-6">
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="map-pin" class="h-6 w-6 text-primary shrink-0 mt-1"></i>
+                                <div>
+                                    <h3 class="font-medium mb-1">Address</h3>
+                                    <p class="text-muted-foreground">123 Café Street</p>
+                                    <p class="text-muted-foreground">City, State 12345</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="clock" class="h-6 w-6 text-primary shrink-0 mt-1"></i>
+                                <div>
+                                    <h3 class="font-medium mb-1">Hours</h3>
+                                    <p class="text-muted-foreground">Monday - Friday: 7am - 7pm</p>
+                                    <p class="text-muted-foreground">Saturday: 8am - 8pm</p>
+                                    <p class="text-muted-foreground">Sunday: 8am - 6pm</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="phone" class="h-6 w-6 text-primary shrink-0 mt-1"></i>
+                                <div>
+                                    <h3 class="font-medium mb-1">Phone</h3>
+                                    <p class="text-muted-foreground">(123) 456-7890</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="mail" class="h-6 w-6 text-primary shrink-0 mt-1"></i>
+                                <div>
+                                    <h3 class="font-medium mb-1">Email</h3>
+                                    <p class="text-muted-foreground">hello@cafeserenity.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal" style="animation-delay: 0.3s">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="font-serif text-2xl font-bold mb-2">Send Us a Message</h2>
+                        <p class="text-muted-foreground mb-6">
+                            Fill out the form below and we'll get back to you as soon as possible.
+                        </p>
+                        <form id="contactForm" class="space-y-4">
+                            <div class="space-y-2">
+                                <label for="name" class="block font-medium">Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            </div>
+                            <div class="space-y-2">
+                                <label for="email" class="block font-medium">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            </div>
+                            <div class="space-y-2">
+                                <label for="phone" class="block font-medium">Phone (optional)</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="message" class="block font-medium">Message</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90" id="submitButton">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="scroll-reveal">
+                <div class="text-center space-y-2">
+                    <h2 class="font-serif text-3xl font-bold">Find Us</h2>
+                    <p class="text-muted-foreground">We're conveniently located in the heart of the city.</p>
+                </div>
+            </div>
+
+            <div class="scroll-reveal mt-8" style="animation-delay: 0.3s">
+                <div class="aspect-[16/9] w-[90%] mx-auto rounded-lg overflow-hidden shadow-md">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e28c1191%3A0x49f75d3281df052a!2s150%20Park%20Row%2C%20New%20York%2C%20NY%2010007!5e0!3m2!1sen!2sus!4v1651234567890!5m2!1sen!2sus"
+                        width="100%"
+                        height="100%"
+                        style="border: 0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Café Serenity Location">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center scroll-reveal" style="animation-delay: 0.5s">
+                <p class="text-muted-foreground">
+                    Parking is available on the street and in the public garage across from our location.
+                </p>
+                <p class="text-muted-foreground">
+                    We're also accessible via public transportation - just a 5-minute walk from Central Station.
+                </p>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+        <footer class="bg-muted py-12 mt-12">
+            <div class="container grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div class="space-y-4">
+                    <h3 class="font-serif text-xl font-bold">Café Serenity</h3>
+                    <p class="text-muted-foreground">A cozy café serving delicious food and beverages in a warm, inviting atmosphere.</p>
+                    <div class="flex gap-4">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-primary transition-colors">
+                            <i data-lucide="instagram" class="h-5 w-5"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-primary transition-colors">
+                            <i data-lucide="facebook" class="h-5 w-5"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="hover:text-primary transition-colors">
+                            <i data-lucide="twitter" class="h-5 w-5"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-serif text-lg font-bold">Hours</h4>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li>Monday - Friday: 7am - 7pm</li>
+                        <li>Saturday: 8am - 8pm</li>
+                        <li>Sunday: 8am - 6pm</li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-serif text-lg font-bold">Contact</h4>
+                    <address class="not-italic space-y-2 text-muted-foreground">
+                        <p>123 Café Street</p>
+                        <p>City, State 12345</p>
+                        <p>Phone: (123) 456-7890</p>
+                        <p>Email: hello@cafeserenity.com</p>
+                    </address>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-serif text-lg font-bold">Newsletter</h4>
+                    <p class="text-muted-foreground">Subscribe to our newsletter for updates on events and seasonal menus.</p>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Your email" class="flex-1 rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition" />
+                        <button type="submit" class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="container mt-8 pt-8 border-t border-border">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm text-muted-foreground">© <span id="year"></span> Café Serenity. All rights reserved.</p>
+                    <div class="flex gap-4 text-sm text-muted-foreground">
+                        <a href="privacy.html" class="hover:text-primary">Privacy Policy</a>
+                        <a href="terms.html" class="hover:text-primary">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-white rounded-lg shadow-lg p-4 hidden transform translate-x-full transition-transform duration-300">
+        <div class="font-medium">Message Sent</div>
+        <div class="text-muted-foreground">Thank you for your message. We'll get back to you soon!</div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            mobileMenuBackdrop.classList.toggle('hidden');
+        }
+
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        mobileMenuClose.addEventListener('click', toggleMobileMenu);
+        mobileMenuBackdrop.addEventListener('click', toggleMobileMenu);
+
+        // Scroll reveal animation
+        const scrollReveal = () => {
+            const elements = document.querySelectorAll('.scroll-reveal');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', scrollReveal);
+        window.addEventListener('load', scrollReveal);
+
+        // Form handling
+        const form = document.getElementById('contactForm');
+        const submitButton = document.getElementById('submitButton');
+        const toast = document.getElementById('toast');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+
+            // Simulate form submission
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            // Show toast
+            toast.classList.remove('hidden');
+            toast.classList.remove('translate-x-full');
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 300);
+            }, 3000);
+
+            // Reset form
+            form.reset();
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Message';
+        });
+    </script>
+</body>
+</html> 
