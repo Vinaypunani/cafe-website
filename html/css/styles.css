@@ -169,33 +169,6 @@ h1, h2, h3, h4, h5, h6,
     }
 }
 
-/* Navbar Links */
-.nav-link {
-    @apply text-sm font-medium text-foreground transition-colors hover:text-primary px-2 py-1;
-    position: relative;
-}
-.nav-link.active, .nav-link[aria-current="page"] {
-    @apply text-primary font-semibold;
-}
-.nav-link.active::after, .nav-link[aria-current="page"]::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 100%;
-    height: 2px;
-    background: var(--primary);
-    border-radius: 2px;
-}
-
-/* Mobile Nav Links */
-.nav-link-mobile {
-    @apply text-lg font-medium text-foreground transition-colors hover:text-primary py-2;
-}
-.nav-link-mobile.active, .nav-link-mobile[aria-current="page"] {
-    @apply text-primary font-semibold;
-}
-
 /* Mobile Menu */
 #mobile-menu {
     box-shadow: 0 4px 32px rgba(0,0,0,0.10);
@@ -225,4 +198,52 @@ h1, h2, h3, h4, h5, h6,
 /* Ensure navbar logo uses Young Serif */
 .navbar-logo {
     @apply font-serif text-2xl font-bold;
+}
+
+/* Navbar Link Animation */
+.nav-link {
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+/* Mobile Nav Link Animation */
+.nav-link-mobile {
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-link-mobile::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.nav-link-mobile:hover::after,
+.nav-link-mobile.active::after {
+    transform: scaleX(1);
 } 
